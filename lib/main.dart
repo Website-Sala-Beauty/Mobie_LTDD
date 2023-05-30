@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todoaap_cuoiki/pages/get_started.dart';
+import 'package:todoaap_cuoiki/pages/home_page.dart';
 
 import 'components/home_page-custom.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const GetStartedPage(),
+      home: const HomePage(),
     );
   }
 }
