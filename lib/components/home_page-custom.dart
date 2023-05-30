@@ -1,19 +1,29 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../components/app_color.dart';
+import '../components/search_box.dart';
+import '../components/todo_app_bar.dart';
+import '../components/todo_item.dart';
 import 'app_color.dart';
 import 'search_box.dart';
 import 'todo_app_bar.dart';
 import 'todo_item.dart';
 import '../models/todo_model.dart';
 
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 class HomePageCustom extends StatefulWidget {
   const HomePageCustom({super.key});
 
   @override
+  State<HomePage> createState() => _HomePageState();
   State<HomePageCustom> createState() => _HomePageCustomState();
 }
 
+class _HomePageState extends State<HomePage> {
+    final _searchController = TextEditingController();
 class _HomePageCustomState extends State<HomePageCustom> {
   final _searchController = TextEditingController();
   final _addController = TextEditingController();
@@ -78,6 +88,8 @@ class _HomePageCustomState extends State<HomePageCustom> {
               SystemChannels.platform.invokeMethod('SystemNavigator.pop');
             }
           },
+          title: ''
+        ),
           title: ''),
       body: Stack(
         children: [
@@ -248,4 +260,5 @@ class _HomePageCustomState extends State<HomePageCustom> {
       ),
     );
   }
+}
 }
