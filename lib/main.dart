@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todoaap_cuoiki/pages/get_started.dart';
-import 'package:todoaap_cuoiki/pages/home_page.dart';
+import 'package:todoaap_cuoiki/pages/home-page.dart';
 
 import 'components/home_page-custom.dart';
 

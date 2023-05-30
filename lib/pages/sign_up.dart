@@ -17,11 +17,12 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   TextEditingController firstNameController = TextEditingController();
-  // TextEditingController lastNameController = TextEditingController();
+  TextEditingController passConfirmController = TextEditingController();
 
   TextEditingController userController = TextEditingController();
   TextEditingController passController = TextEditingController();
   bool _isObscured = true;
+  bool _isObscuredConfirm = true;
 
   @override
   Widget build(BuildContext context) {
@@ -147,7 +148,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             decoration: InputDecoration(
                               filled: true,
                               fillColor: Colors.white,
-                              hintText: 'Password',
+                              hintText: ' Password',
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
                                   borderSide: BorderSide.none),
@@ -165,6 +166,31 @@ class _SignUpPageState extends State<SignUpPage> {
                               ),
                             ),
                           ),
+                          const SizedBox(height: 10),
+                          TextField(
+                            controller: passConfirmController,
+                            obscureText: _isObscuredConfirm,
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                              hintText: 'Confirm Password',
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide: BorderSide.none),
+                              suffixIcon: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    _isObscuredConfirm = !_isObscuredConfirm;
+                                  });
+                                },
+                                icon: Icon(
+                                  _isObscuredConfirm
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
+                                ),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -175,28 +201,66 @@ class _SignUpPageState extends State<SignUpPage> {
                           String phone = userController.text;
                           String password = passController.text;
                           if (checkNull(firstName, phone, password)) {
-                            SharedPreferences prefs =
-                                await SharedPreferences.getInstance();
-                            User use = User(
-                              phone: userController.text,
-                              password: passController.text,
-                              name: firstNameController.text,
-                            );
-                            prefs.setString('user', use.toJson());
-                            SnackBar snackBar = const SnackBar(
-                                duration: Duration(seconds: 2),
-                                content: Text(
-                                  'Đăng ký thành công',
-                                  style: TextStyle(color: Colors.white),
-                                ));
-                            ScaffoldMessenger.of(context)
-                                .showSnackBar(snackBar);
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const LoginPage()));
+                            if (passConfirmController.text ==
+                                passController.text) {
+                              SharedPreferences prefs =
+                                  await SharedPreferences.getInstance();
+                              User use = User(
+                                phone: userController.text,
+                                password: passController.text,
+                                name: firstNameController.text,
+                              );
+                              prefs.setString('user', use.toJson());
+                              SnackBar snackBar = const SnackBar(
+                                  duration: Duration(seconds: 2),
+                                  content: Text(
+                                    'Đăng ký thành công',
+                                    style: TextStyle(color: Colors.white),
+                                  ));
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(snackBar);
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const LoginPage()));
+                            } else {
+                              showDialog<bool>(
+                                context: context,
+                                builder: (BuildContext context) => AlertDialog(
+                                  title: const Text(
+                                    '!!!!',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(color: Colors.red),
+                                  ),
+                                  content: Row(
+                                    children: const [
+                                      Expanded(
+                                        child: Text(
+                                          'Mật khẩu không khớp',
+                                          style: TextStyle(fontSize: 22.0),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(context, false),
+                                      child: const Text('Cancel'),
+                                    ),
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(context, true),
+                                      child: const Text('OK'),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            }
                           } else {
                             // showAlertDialog(context);
+
                             showDialog<bool>(
                               context: context,
                               builder: (BuildContext context) => AlertDialog(

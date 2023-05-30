@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:todoaap_cuoiki/pages/login_page.dart';
 
 import '../components/app_color.dart';
 import '../components/search_box.dart';
@@ -64,7 +66,20 @@ class _HomePageCustomState extends State<HomePageCustom> {
                     child: const Text('Cancel'),
                   ),
                   TextButton(
-                    onPressed: () => Navigator.pop(context, true),
+                    onPressed: () async {
+                      SharedPreferences prefs =
+                          await SharedPreferences.getInstance();
+                      await prefs.remove('user');
+                      Route route = MaterialPageRoute(
+                        builder: (context) => const LoginPage(),
+                      );
+                      // ignore: use_build_context_synchronously
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        route,
+                        (Route<dynamic> route) => false,
+                      );
+                    },
                     child: const Text('OK'),
                   ),
                 ],
@@ -112,7 +127,7 @@ class _HomePageCustomState extends State<HomePageCustom> {
                                   children: const [
                                     Expanded(
                                       child: Text(
-                                        'Do you want to remove the todo?',
+                                        'Bạn có chắc chắn muốn đăng xuất',
                                         style: TextStyle(fontSize: 22.0),
                                         textAlign: TextAlign.center,
                                       ),
