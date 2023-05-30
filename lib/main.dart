@@ -29,8 +29,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-<<<<<<< .mine
-
-=======
-
->>>>>>> .theirs
