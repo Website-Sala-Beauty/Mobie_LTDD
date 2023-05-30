@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
               SystemChannels.platform.invokeMethod('SystemNavigator.pop');
             }
           },
-        //  title: widget.title
+          title: ''
         ),
       body: Stack(
         children: [
