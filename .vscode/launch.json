@@ -1,0 +1,394 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "roome_app",
+            "cwd": "Workspace\\Room-App\\roome_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "roome_app (profile mode)",
+            "cwd": "Workspace\\Room-App\\roome_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "roome_app (release mode)",
+            "cwd": "Workspace\\Room-App\\roome_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "caculate_plus",
+            "cwd": "Workspace\\workspace_flutter\\caculate_plus",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "caculate_plus (profile mode)",
+            "cwd": "Workspace\\workspace_flutter\\caculate_plus",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "caculate_plus (release mode)",
+            "cwd": "Workspace\\workspace_flutter\\caculate_plus",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "dart_application_2",
+            "cwd": "Workspace\\workspace_flutter\\dart_application_2",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "dart_application_2 (profile mode)",
+            "cwd": "Workspace\\workspace_flutter\\dart_application_2",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "dart_application_2 (release mode)",
+            "cwd": "Workspace\\workspace_flutter\\dart_application_2",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "dart_application_3",
+            "cwd": "Workspace\\workspace_flutter\\dart_application_3",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "flutter_bt_lop",
+            "cwd": "Workspace\\workspace_flutter\\flutter_bt_lop",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "flutter_bt_lop (profile mode)",
+            "cwd": "Workspace\\workspace_flutter\\flutter_bt_lop",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "flutter_bt_lop (release mode)",
+            "cwd": "Workspace\\workspace_flutter\\flutter_bt_lop",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "flutter_login_1",
+            "cwd": "Workspace\\workspace_flutter\\flutter_login_1",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "flutter_login_1 (profile mode)",
+            "cwd": "Workspace\\workspace_flutter\\flutter_login_1",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "flutter_login_1 (release mode)",
+            "cwd": "Workspace\\workspace_flutter\\flutter_login_1",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "flutter_mywork",
+            "cwd": "Workspace\\workspace_flutter\\flutter_mywork",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "flutter_mywork (profile mode)",
+            "cwd": "Workspace\\workspace_flutter\\flutter_mywork",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "flutter_mywork (release mode)",
+            "cwd": "Workspace\\workspace_flutter\\flutter_mywork",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "foodie_list",
+            "cwd": "Workspace\\workspace_flutter\\foodie_list",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "foodie_list (profile mode)",
+            "cwd": "Workspace\\workspace_flutter\\foodie_list",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "foodie_list (release mode)",
+            "cwd": "Workspace\\workspace_flutter\\foodie_list",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "foodie_login",
+            "cwd": "Workspace\\workspace_flutter\\foodie_login",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "foodie_login (profile mode)",
+            "cwd": "Workspace\\workspace_flutter\\foodie_login",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "foodie_login (release mode)",
+            "cwd": "Workspace\\workspace_flutter\\foodie_login",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "giuaki",
+            "cwd": "Workspace\\workspace_flutter\\giuaki",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "giuaki (profile mode)",
+            "cwd": "Workspace\\workspace_flutter\\giuaki",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "giuaki (release mode)",
+            "cwd": "Workspace\\workspace_flutter\\giuaki",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "login_1",
+            "cwd": "Workspace\\workspace_flutter\\login_1",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "login_1 (profile mode)",
+            "cwd": "Workspace\\workspace_flutter\\login_1",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "login_1 (release mode)",
+            "cwd": "Workspace\\workspace_flutter\\login_1",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "login_flutter",
+            "cwd": "Workspace\\workspace_flutter\\login_flutter",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "login_flutter (profile mode)",
+            "cwd": "Workspace\\workspace_flutter\\login_flutter",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "login_flutter (release mode)",
+            "cwd": "Workspace\\workspace_flutter\\login_flutter",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "login_flutter_2",
+            "cwd": "Workspace\\workspace_flutter\\login_flutter_2",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "login_flutter_2 (profile mode)",
+            "cwd": "Workspace\\workspace_flutter\\login_flutter_2",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "login_flutter_2 (release mode)",
+            "cwd": "Workspace\\workspace_flutter\\login_flutter_2",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "login_stack_app",
+            "cwd": "Workspace\\workspace_flutter\\login_stack_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "login_stack_app (profile mode)",
+            "cwd": "Workspace\\workspace_flutter\\login_stack_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "login_stack_app (release mode)",
+            "cwd": "Workspace\\workspace_flutter\\login_stack_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "login_stack_app_2",
+            "cwd": "Workspace\\workspace_flutter\\login_stack_app_2",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "login_stack_app_2 (profile mode)",
+            "cwd": "Workspace\\workspace_flutter\\login_stack_app_2",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "login_stack_app_2 (release mode)",
+            "cwd": "Workspace\\workspace_flutter\\login_stack_app_2",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "roome_app",
+            "cwd": "Workspace\\workspace_flutter\\roome_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "roome_app (profile mode)",
+            "cwd": "Workspace\\workspace_flutter\\roome_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "roome_app (release mode)",
+            "cwd": "Workspace\\workspace_flutter\\roome_app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "test_run",
+            "cwd": "Workspace\\workspace_flutter\\test_run",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "test_run (profile mode)",
+            "cwd": "Workspace\\workspace_flutter\\test_run",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "test_run (release mode)",
+            "cwd": "Workspace\\workspace_flutter\\test_run",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "todo_app_flutter",
+            "cwd": "Workspace\\workspace_flutter\\todo_app_flutter",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "todo_app_flutter (profile mode)",
+            "cwd": "Workspace\\workspace_flutter\\todo_app_flutter",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "todo_app_flutter (release mode)",
+            "cwd": "Workspace\\workspace_flutter\\todo_app_flutter",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "to_doo_thay",
+            "cwd": "Workspace\\workspace_flutter\\to_doo_thay",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "to_doo_thay (profile mode)",
+            "cwd": "Workspace\\workspace_flutter\\to_doo_thay",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "to_doo_thay (release mode)",
+            "cwd": "Workspace\\workspace_flutter\\to_doo_thay",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "calculate_average_flutter_test3",
+            "cwd": "Workspace\\workspace_flutter\\calculate_average_flutter_test3\\calculate_average_flutter_test3",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "calculate_average_flutter_test3 (profile mode)",
+            "cwd": "Workspace\\workspace_flutter\\calculate_average_flutter_test3\\calculate_average_flutter_test3",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "calculate_average_flutter_test3 (release mode)",
+            "cwd": "Workspace\\workspace_flutter\\calculate_average_flutter_test3\\calculate_average_flutter_test3",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
