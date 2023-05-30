@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todoaap_cuoiki/pages/log_and_reg.dart';
 import 'package:todoaap_cuoiki/pages/login_page.dart';
-// import 'package:roome_app/page/log_and_reg.dart';
-// import 'package:roome_app/page/login_page.dart';
-
 import '../components/custom_button.dart';
 
 class GetStartedPage extends StatefulWidget {

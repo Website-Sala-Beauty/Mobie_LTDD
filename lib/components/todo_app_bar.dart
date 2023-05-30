@@ -7,13 +7,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     super.key,
     this.rightPressed,
-    this.title,
+    required this.title,
     this.color = AppColor.bgColor,
     this.icon = const Icon(Icons.logout, size: 24.0, color: AppColor.brown),
   });
 
   final VoidCallback? rightPressed;
-  final String? title;
+  final String title;
   final Color color;
   final Icon icon;
 
@@ -30,7 +30,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             backgroundImage: AssetImage('assets/images/avatar.png'),
             radius: 24.0,
           ),
-          Text(title!,
+          Text(title,
               style: const TextStyle(color: AppColor.blue, fontSize: 22.0)),
           InkWell(
             onTap: rightPressed,
