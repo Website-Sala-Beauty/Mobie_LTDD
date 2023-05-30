@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:todoaap_cuoiki/pages/get_started.dart';
 
@@ -28,3 +29,8 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+<<<<<<< .mine
+
+=======
+
+>>>>>>> .theirs
