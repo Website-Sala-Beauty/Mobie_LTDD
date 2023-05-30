@@ -27,7 +27,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           const CircleAvatar(
-            backgroundImage: AssetImage('assets/images/avatar.png'),
+            backgroundImage: AssetImage('assets/images/avatar.jpg'),
             radius: 24.0,
           ),
           Text(title,

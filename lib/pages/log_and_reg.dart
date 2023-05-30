@@ -25,21 +25,21 @@ class _LoginAndRegisterState extends State<LoginAndRegister> {
                     Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('images/log_a_reg_1.jpg'),
+                          image: AssetImage('assets/images/log_a_reg_1.jpg'),
                         ),
                       ),
                     ),
                     Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('images/log_a_reg_2.jpg'),
+                          image: AssetImage('assets/images/log_a_reg_2.jpg'),
                         ),
                       ),
                     ),
                     Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('images/log_a_reg_3.jpg'),
+                          image: AssetImage('assets/images/log_a_reg_3.jpg'),
                         ),
                       ),
                     ),

@@ -14,18 +14,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,//xóa dòng debug
+      debugShowCheckedModeBanner: false, //xóa dòng debug
       title: 'Flutter Demo',
       theme: ThemeData(
-        
         primarySwatch: Colors.blue,
       ),
-      
-      
-      
-      home: HomePage(),
+
+      //điệp
+      // home: HomePage(),
+
+      //toản
+      home: GetStartedPage(),
     );
   }
 }
-
-

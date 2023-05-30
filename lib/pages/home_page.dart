@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:todoaap_cuoiki/pages/login_page.dart';
 
 import '../components/app_color.dart';
 import '../components/search_box.dart';
@@ -15,7 +16,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-    final _searchController = TextEditingController();
+  final _searchController = TextEditingController();
   final _addController = TextEditingController();
   final _addFocus = FocusNode();
   bool _showAddBox = false;
@@ -40,6 +41,7 @@ class _HomePageState extends State<HomePage> {
             (element.text ?? '').toLowerCase().contains(searchText))
         .toList();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,7 +69,14 @@ class _HomePageState extends State<HomePage> {
                     child: const Text('Cancel'),
                   ),
                   TextButton(
-                    onPressed: () => Navigator.pop(context, true),
+                    onPressed: () {
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) => LoginPage()),
+                        (route) => false,
+                      );
+                    },
                     child: const Text('OK'),
                   ),
                 ],
@@ -77,8 +86,7 @@ class _HomePageState extends State<HomePage> {
               SystemChannels.platform.invokeMethod('SystemNavigator.pop');
             }
           },
-          title: ''
-        ),
+          title: ''),
       body: Stack(
         children: [
           Positioned.fill(
