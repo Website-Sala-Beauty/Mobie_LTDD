@@ -1,8 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:todoaap_cuoiki/pages/get_started.dart';
 
-import 'pages/home_page.dart';
 import 'components/home_page-custom.dart';
 
 void main() {
@@ -16,21 +14,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,//xóa dòng debug
+      debugShowCheckedModeBanner: false, //xóa dòng debug
       title: 'Flutter Demo',
       theme: ThemeData(
-        
         primarySwatch: Colors.blue,
       ),
-      home: GetStartedPage(),
-      
-      
-      
-      home: HomePage(),
-      
-      
-      
-     
+      home: const GetStartedPage(),
     );
   }
 }
