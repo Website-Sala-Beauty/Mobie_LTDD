@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:todoaap_cuoiki/pages/get_started.dart';
 
-import 'pages/home_page.dart';
+import 'components/home_page-custom.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       
       
       
-      home: HomePage(),
+     
     );
   }
 }

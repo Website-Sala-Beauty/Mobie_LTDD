@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 
-class BottomNavigationBarExample extends StatefulWidget {
+class MasterPage extends StatefulWidget {
   final Widget? child;
-  const BottomNavigationBarExample({super.key, this.child});
+  const MasterPage({super.key, this.child});
 
   @override
-  State<BottomNavigationBarExample> createState() =>
-      _BottomNavigationBarExampleState();
+  State<MasterPage> createState() => _MasterPageState();
 }
 
-class _BottomNavigationBarExampleState
-    extends State<BottomNavigationBarExample> {
+class _MasterPageState extends State<MasterPage> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
