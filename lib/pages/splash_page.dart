@@ -1,7 +1,13 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todoaap_cuoiki/pages/home-page.dart';
+import 'package:todoaap_cuoiki/pages/login_page.dart';
+
+final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -15,14 +21,29 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
     Timer(
-      const Duration(seconds: 5),
+      const Duration(seconds: 3),
       () {
-        Route route = MaterialPageRoute(
-          builder: (context) => const HomePage(),
-        );
-        Navigator.push(context, route);
+        checkLogin();
       },
     );
+  }
+
+  void checkLogin() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    if (prefs.containsKey('user')) {
+      // final jsonString = prefs.getString('user');
+      // final map = jsonDecode(jsonString);
+      // User user = User.fromJson(map);
+      // Đăng nhập tự động thành công, chuyển hướng đến màn hình chính
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => const HomePage()),
+      );
+    } else {
+      // Không có thông tin đăng nhập, chuyển hướng đến màn hình đăng nhập
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => const LoginPage()),
+      );
+    }
   }
 
   @override

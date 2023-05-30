@@ -1,6 +1,13 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todoaap_cuoiki/components/custom_button.dart';
 import 'package:todoaap_cuoiki/components/custom_text_field.dart';
+import 'package:todoaap_cuoiki/models/User.dart';
+import 'package:todoaap_cuoiki/pages/home-page.dart';
 import 'package:todoaap_cuoiki/pages/log_and_reg.dart';
 import 'package:todoaap_cuoiki/pages/sign_up.dart';
 import 'package:todoaap_cuoiki/pages/splash_page.dart';
@@ -185,19 +192,25 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     const SizedBox(height: 10),
                     CustomButton(
-                        onPressed: () {
+                        onPressed: () async {
                           String userInput = userController.text.trim();
                           String passInput = passController.text.trim();
-                          if (userInput == 'quoctoan' && passInput == '12345') {
+                          SharedPreferences prefs =
+                              await SharedPreferences.getInstance();
+                          Map<String, dynamic> userJson =
+                              jsonDecode(prefs.getString('user')!);
+                          User user = User.fromJson(userJson);
+                          if (userInput == user.phone &&
+                              passInput == user.password) {
+                            Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const HomePage()),
+                                (route) => false);
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
+                                duration: Duration(seconds: 2),
                                 content: Text('Logged in successfully'),
-                              ),
-                            );
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => SplashPage(),
                               ),
                             );
                           } else {
@@ -213,6 +226,32 @@ class _LoginPageState extends State<LoginPage> {
                               );
                             }
                           }
+
+                          // if (userInput == 'quoctoan' && passInput == '12345') {
+                          //   ScaffoldMessenger.of(context).showSnackBar(
+                          //     const SnackBar(
+                          //       content: Text('Logged in successfully'),
+                          //     ),
+                          //   );
+                          //   Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //       builder: (context) => SplashPage(),
+                          //     ),
+                          //   );
+                          // } else {
+                          //   setState(() {
+                          //     userCheck = userInput.isEmpty;
+                          //     passCheck = passInput.isEmpty;
+                          //   });
+                          //   if (userCheck != true && passCheck != true) {
+                          //     ScaffoldMessenger.of(context).showSnackBar(
+                          //       const SnackBar(
+                          //         content: Text("Invalid login or password"),
+                          //       ),
+                          //     );
+                          //   }
+                          // }
                         },
                         text: 'Log in'),
                     // const SizedBox(height: 120),
