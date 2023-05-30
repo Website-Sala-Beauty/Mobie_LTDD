@@ -6,6 +6,7 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController? controller;
   final IconData? icon;
   final bool obscureText;
+  final TextInputType? keyboardType;
 
   const CustomTextField(
       {super.key,
@@ -13,30 +14,31 @@ class CustomTextField extends StatelessWidget {
       this.controller,
       this.icon,
       this.obscureText = true,
-      this.onChanged});
+      this.onChanged,
+      this.keyboardType});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: TextField(
-        onChanged: onChanged,
-        controller: controller,
-        obscureText: obscureText,
-        decoration: InputDecoration(
-          filled: true,
-          fillColor: Colors.white,
-          hintText: hintText,
-          prefixIcon: icon == null
-              ? null
-              : Icon(
-                  icon,
-                  color: Colors.grey,
-                ),
-          prefixIconConstraints: const BoxConstraints(minWidth: 26.0),
-          border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(30),
-              borderSide: BorderSide.none),
-        ),
+    return TextFormField(
+      onChanged: onChanged,
+      controller: controller,
+      obscureText: obscureText,
+      maxLines: null,
+      keyboardType: keyboardType,
+      decoration: InputDecoration(
+        filled: true,
+        fillColor: Colors.white,
+        hintText: hintText,
+        prefixIcon: icon == null
+            ? null
+            : Icon(
+                icon,
+                color: Colors.grey,
+              ),
+        prefixIconConstraints: const BoxConstraints(minWidth: 26.0),
+        border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),
+            borderSide: BorderSide.none),
       ),
     );
   }

@@ -50,180 +50,227 @@ class _SignUpPageState extends State<SignUpPage> {
           Positioned.fill(
             child: SingleChildScrollView(
               child: SizedBox(
-                height: MediaQuery.of(context).size.height,
-                child: Column(
-                  children: [
-                    const Text(
-                      'Sign Up',
-                      style: TextStyle(
-                          fontFamily: 'MajoraBold',
-                          fontSize: 30,
-                          fontWeight: FontWeight.w900),
-                    ),
-                    const SizedBox(height: 15),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      // crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 13),
-                            primary: Color(0xFF1178F2),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                          ),
-                          child: Row(
-                            children: const [
-                              Image(
-                                image:
-                                    AssetImage('assets/images/logo_face.png'),
-                                height: 30,
-                              ),
-                              Text(
-                                'Facebook',
-                                style: TextStyle(fontSize: 16),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 25, vertical: 13),
-                            primary: Color(0xFF00ADEF),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                          ),
-                          child: Row(
-                            children: const [
-                              Image(
-                                image: AssetImage(
-                                    'assets/images/logo_twitter.png'),
-                                height: 30,
-                              ),
-                              Text(
-                                'Twitter',
-                                style: TextStyle(fontSize: 18),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 15),
-                      constraints: BoxConstraints(maxWidth: 400),
-                      child: Column(
+                height: MediaQuery.of(context).size.height * 1.1,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 12.0),
+                  child: Column(
+                    children: [
+                      const Text(
+                        'Sign Up',
+                        style: TextStyle(
+                            fontFamily: 'MajoraBold',
+                            fontSize: 30,
+                            fontWeight: FontWeight.w900),
+                      ),
+                      const SizedBox(height: 15),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        // crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
-                            'or sign up with email',
-                            style: TextStyle(
-                                fontSize: 15,
-                                color: Colors.grey,
-                                fontWeight: FontWeight.w600),
-                          ),
-                          const SizedBox(height: 10),
-                          CustomTextField(
-                            controller: firstNameController,
-                            hintText: 'Full Name',
-                            obscureText: false,
-                          ),
-                          const SizedBox(height: 10),
-                          CustomTextField(
-                            controller: userController,
-                            hintText: 'Phone Name',
-                            obscureText: false,
-                          ),
-                          const SizedBox(height: 10),
-                          TextField(
-                            controller: passController,
-                            obscureText: _isObscured,
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white,
-                              hintText: ' Password',
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide: BorderSide.none),
-                              suffixIcon: IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    _isObscured = !_isObscured;
-                                  });
-                                },
-                                icon: Icon(
-                                  _isObscured
-                                      ? Icons.visibility
-                                      : Icons.visibility_off,
-                                ),
+                          ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 13),
+                              primary: Color(0xFF1178F2),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
                               ),
                             ),
-                          ),
-                          const SizedBox(height: 10),
-                          TextField(
-                            controller: passConfirmController,
-                            obscureText: _isObscuredConfirm,
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white,
-                              hintText: 'Confirm Password',
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide: BorderSide.none),
-                              suffixIcon: IconButton(
-                                onPressed: () {
-                                  setState(() {
-                                    _isObscuredConfirm = !_isObscuredConfirm;
-                                  });
-                                },
-                                icon: Icon(
-                                  _isObscuredConfirm
-                                      ? Icons.visibility
-                                      : Icons.visibility_off,
+                            child: Row(
+                              children: const [
+                                Image(
+                                  image:
+                                      AssetImage('assets/images/logo_face.png'),
+                                  height: 30,
                                 ),
+                                Text(
+                                  'Facebook',
+                                  style: TextStyle(fontSize: 16),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 25, vertical: 13),
+                              primary: Color(0xFF00ADEF),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
                               ),
+                            ),
+                            child: Row(
+                              children: const [
+                                Image(
+                                  image: AssetImage(
+                                      'assets/images/logo_twitter.png'),
+                                  height: 30,
+                                ),
+                                Text(
+                                  'Twitter',
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                              ],
                             ),
                           ),
                         ],
                       ),
-                    ),
-                    const SizedBox(height: 15),
-                    CustomButton(
-                        onPressed: () async {
-                          String firstName = firstNameController.text;
-                          String phone = userController.text;
-                          String password = passController.text;
-                          if (checkNull(firstName, phone, password)) {
-                            if (passConfirmController.text ==
-                                passController.text) {
-                              SharedPreferences prefs =
-                                  await SharedPreferences.getInstance();
-                              User use = User(
-                                phone: userController.text,
-                                password: passController.text,
-                                name: firstNameController.text,
-                              );
-                              prefs.setString('user', use.toJson());
-                              SnackBar snackBar = const SnackBar(
-                                  duration: Duration(seconds: 2),
-                                  content: Text(
-                                    'Đăng ký thành công',
-                                    style: TextStyle(color: Colors.white),
-                                  ));
-                              ScaffoldMessenger.of(context)
-                                  .showSnackBar(snackBar);
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const LoginPage()));
+                      const SizedBox(height: 20),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        constraints: BoxConstraints(maxWidth: 400),
+                        child: Form(
+                          child: Column(
+                            children: [
+                              const Text(
+                                'or sign up with email',
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              const SizedBox(height: 10),
+                              CustomTextField(
+                                controller: firstNameController,
+                                hintText: 'Full Name',
+                                obscureText: false,
+                              ),
+                              const SizedBox(height: 10),
+                              CustomTextField(
+                                controller: userController,
+                                keyboardType: TextInputType.phone,
+                                hintText: 'Phone Number',
+                                obscureText: false,
+                              ),
+                              const SizedBox(height: 10),
+                              TextField(
+                                controller: passController,
+                                obscureText: _isObscured,
+                                decoration: InputDecoration(
+                                  filled: true,
+                                  fillColor: Colors.white,
+                                  hintText: ' Password',
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(30),
+                                      borderSide: BorderSide.none),
+                                  suffixIcon: IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        _isObscured = !_isObscured;
+                                      });
+                                    },
+                                    icon: Icon(
+                                      _isObscured
+                                          ? Icons.visibility
+                                          : Icons.visibility_off,
+                                      color: Color.fromARGB(255, 114, 228, 243),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              TextField(
+                                controller: passConfirmController,
+                                obscureText: _isObscuredConfirm,
+                                decoration: InputDecoration(
+                                  filled: true,
+                                  fillColor: Colors.white,
+                                  hintText: 'Confirm Password',
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(30),
+                                      borderSide: BorderSide.none),
+                                  suffixIcon: IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        _isObscuredConfirm =
+                                            !_isObscuredConfirm;
+                                      });
+                                    },
+                                    icon: Icon(
+                                      _isObscuredConfirm
+                                          ? Icons.visibility
+                                          : Icons.visibility_off,
+                                      color: Color.fromARGB(255, 114, 228, 243),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 15),
+                      CustomButton(
+                          onPressed: () async {
+                            String firstName = firstNameController.text;
+                            String phone = userController.text;
+                            String password = passController.text;
+                            if (checkNull(firstName, phone, password)) {
+                              if (passConfirmController.text ==
+                                  passController.text) {
+                                SharedPreferences prefs =
+                                    await SharedPreferences.getInstance();
+                                User use = User(
+                                  phone: userController.text,
+                                  password: passController.text,
+                                  name: firstNameController.text,
+                                );
+                                prefs.setString('user', use.toJson());
+                                SnackBar snackBar = const SnackBar(
+                                    duration: Duration(seconds: 2),
+                                    content: Text(
+                                      'Đăng ký thành công',
+                                      style: TextStyle(color: Colors.white),
+                                    ));
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(snackBar);
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const LoginPage()));
+                              } else {
+                                showDialog<bool>(
+                                  context: context,
+                                  builder: (BuildContext context) =>
+                                      AlertDialog(
+                                    title: const Text(
+                                      '!!!!',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(color: Colors.red),
+                                    ),
+                                    content: Row(
+                                      children: const [
+                                        Expanded(
+                                          child: Text(
+                                            'Mật khẩu không khớp',
+                                            style: TextStyle(fontSize: 22.0),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(context, false),
+                                        child: const Text('Cancel'),
+                                      ),
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(context, true),
+                                        child: const Text('OK'),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              }
                             } else {
+                              // showAlertDialog(context);
+
                               showDialog<bool>(
                                 context: context,
                                 builder: (BuildContext context) => AlertDialog(
@@ -236,7 +283,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                     children: const [
                                       Expanded(
                                         child: Text(
-                                          'Mật khẩu không khớp',
+                                          'Vui lòng nhập đầy đủ thông tin',
                                           style: TextStyle(fontSize: 22.0),
                                           textAlign: TextAlign.center,
                                         ),
@@ -258,59 +305,23 @@ class _SignUpPageState extends State<SignUpPage> {
                                 ),
                               );
                             }
-                          } else {
-                            // showAlertDialog(context);
+                          },
+                          text: 'Sign Up'),
+                      const SizedBox(height: 15),
 
-                            showDialog<bool>(
-                              context: context,
-                              builder: (BuildContext context) => AlertDialog(
-                                title: const Text(
-                                  '!!!!',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(color: Colors.red),
-                                ),
-                                content: Row(
-                                  children: const [
-                                    Expanded(
-                                      child: Text(
-                                        'Vui lòng nhập đầy đủ thông tin',
-                                        style: TextStyle(fontSize: 22.0),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(context, false),
-                                    child: const Text('Cancel'),
-                                  ),
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(context, true),
-                                    child: const Text('OK'),
-                                  ),
-                                ],
-                              ),
-                            );
-                          }
-                        },
-                        text: 'Sign Up'),
-                    const SizedBox(height: 15),
-
-                    const Center(
-                      child: Text(
-                        'By signing up, you agreed with our Term of\nServices and Privacy Policy',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.grey,
-                            fontWeight: FontWeight.w600),
+                      const Center(
+                        child: Text(
+                          'By signing up, you agreed with our Term of\nServices and Privacy Policy',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.w600),
+                        ),
                       ),
-                    ),
-                    // const SizedBox(height: 120),
-                  ],
+                      // const SizedBox(height: 120),
+                    ],
+                  ),
                 ),
               ),
             ),

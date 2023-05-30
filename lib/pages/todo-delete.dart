@@ -7,14 +7,14 @@ import '../components/todo_item.dart';
 
 import '../models/todo_model.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class ToDoDeletePage extends StatefulWidget {
+  const ToDoDeletePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<ToDoDeletePage> createState() => _ToDoDeletePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _ToDoDeletePageState extends State<ToDoDeletePage> {
   final _searchController = TextEditingController();
   final _addController = TextEditingController();
   final _addFocus = FocusNode();
@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
         if (value != null) {
           _listData = value.toList(); // danh sách gốc để thực hiện cập nhật lại
           _searches =
-              [..._listData].where((element) => element.status == 1).toList();
+              [..._listData].where((element) => element.status == 3).toList();
         }
       });
     });
@@ -177,7 +177,6 @@ class _HomePageState extends State<HomePage> {
                       child: TextField(
                         controller: _addController,
                         focusNode: _addFocus,
-                        maxLines: null,
                         decoration: const InputDecoration(
                           border: InputBorder.none,
                           hintText: 'Add a new todo item',

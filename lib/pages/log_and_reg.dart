@@ -23,21 +23,21 @@ class _LoginAndRegisterState extends State<LoginAndRegister> {
               CarouselSlider(
                   items: [
                     Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage('assets/images/log_a_reg_1.jpg'),
                         ),
                       ),
                     ),
                     Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage('assets/images/log_a_reg_2.jpg'),
                         ),
                       ),
                     ),
                     Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage('assets/images/log_a_reg_3.jpg'),
                         ),
@@ -52,7 +52,7 @@ class _LoginAndRegisterState extends State<LoginAndRegister> {
                     viewportFraction: 0.8,
                   )),
               const SizedBox(height: 15),
-              Text(
+              const Text(
                 'Plan your trips',
                 style: TextStyle(
                     fontFamily: 'MajoraBold',
@@ -78,7 +78,10 @@ class _LoginAndRegisterState extends State<LoginAndRegister> {
                   text: 'Log in'),
               const SizedBox(height: 20),
               ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => SignUpPage()));
+                  },
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsetsDirectional.symmetric(
                         horizontal: 85, vertical: 0),
@@ -96,7 +99,7 @@ class _LoginAndRegisterState extends State<LoginAndRegister> {
                           MaterialPageRoute(
                               builder: (context) => SignUpPage()));
                     },
-                    child:const Text(
+                    child: const Text(
                       'Create account',
                       style: TextStyle(color: Colors.black),
                     ),

@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:todoaap_cuoiki/models/todo_model.dart';
 
 import 'app_color.dart';
 
-
 class TodoItem extends StatelessWidget {
-  
-
   const TodoItem({
     super.key,
     this.onTap,
     this.onDeleted,
     required this.text,
     required this.isDone,
+    this.isDoneFunction,
   });
 
   final VoidCallback? onTap;
   final VoidCallback? onDeleted;
   final String text;
+  final VoidCallback? isDoneFunction;
   final bool isDone;
 
   @override
@@ -42,6 +42,9 @@ class TodoItem extends StatelessWidget {
             Icon(
               () {
                 if (isDone) {
+                  TodoModel todo = TodoModel();
+                  // todo.status = 2;
+                  // todos.remove(value)
                   return Icons.check_box_outlined;
                 }
                 return Icons.check_box_outline_blank;

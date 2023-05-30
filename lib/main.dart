@@ -3,6 +3,7 @@ import 'package:todoaap_cuoiki/pages/get_started.dart';
 import 'package:todoaap_cuoiki/pages/home-page.dart';
 
 import 'components/home_page-custom.dart';
+import 'components/master-page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: const MasterPage(),
     );
   }
 }

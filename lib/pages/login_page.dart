@@ -87,7 +87,8 @@ class _LoginPageState extends State<LoginPage> {
                             child: Row(
                               children: const [
                                 Image(
-                                  image: AssetImage('images/logo_face.png'),
+                                  image:
+                                      AssetImage('assets/images/logo_face.png'),
                                   height: 30,
                                 ),
                                 Text(
@@ -111,7 +112,8 @@ class _LoginPageState extends State<LoginPage> {
                             child: Row(
                               children: const [
                                 Image(
-                                  image: AssetImage('images/logo_twitter.png'),
+                                  image: AssetImage(
+                                      'assets/images/logo_twitter.png'),
                                   height: 30,
                                 ),
                                 Text(

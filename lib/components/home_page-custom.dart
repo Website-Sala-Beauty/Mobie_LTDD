@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todoaap_cuoiki/pages/login_page.dart';
+import 'package:todoaap_cuoiki/services/local/shared_perferences.dart';
 
 import '../components/app_color.dart';
 import '../components/search_box.dart';
@@ -23,20 +24,40 @@ class _HomePageCustomState extends State<HomePageCustom> {
   final _addFocus = FocusNode();
   bool _showAddBox = false;
   List<TodoModel> _searches = [];
+  List<TodoModel> _listData = [];
+
+  final SharePrefs _prefs = SharePrefs();
 
   @override
   void initState() {
     super.initState();
-    _searches = [...todos];
+    //_searches = [...todos];
+    _getToDo();
   }
 
   _searchTodos(String searchText) {
     searchText = searchText.toLowerCase();
 
-    _searches = todos
+    _searches = _listData
         .where((element) =>
             (element.text ?? '').toLowerCase().contains(searchText))
         .toList();
+  }
+
+  _getToDo() async {
+    _prefs.getTodo().then((value) {
+      setState(() {
+        // chỉ cần gán _listData = value với nhứn todo isDone = true
+        if (value != null) {
+          _listData = value.where((element) => element.status == 1).toList();
+          _searches = [..._listData];
+        }
+        // _listData = value ?? todos;
+        // _searches = [..._listData];
+        //todos = [..._listData];
+        // setState(() {});
+      });
+    });
   }
 
   @override
@@ -53,7 +74,7 @@ class _HomePageCustomState extends State<HomePageCustom> {
                   children: const [
                     Expanded(
                       child: Text(
-                        'Do you want to logout?',
+                        'Bạn có chắc chắn muốn đăng xuất?',
                         style: TextStyle(fontSize: 22.0),
                         textAlign: TextAlign.center,
                       ),
@@ -116,6 +137,8 @@ class _HomePageCustomState extends State<HomePageCustom> {
                           onTap: () {
                             setState(() {
                               todo.isDone = !(todo.isDone ?? false);
+
+                              _prefs.addBills(_listData);
                             });
                           },
                           onDeleted: () async {
@@ -127,7 +150,7 @@ class _HomePageCustomState extends State<HomePageCustom> {
                                   children: const [
                                     Expanded(
                                       child: Text(
-                                        'Bạn có chắc chắn muốn đăng xuất',
+                                        'Do you want to remove the todo?',
                                         style: TextStyle(fontSize: 22.0),
                                         textAlign: TextAlign.center,
                                       ),
@@ -150,8 +173,9 @@ class _HomePageCustomState extends State<HomePageCustom> {
                             );
                             if (status ?? false) {
                               setState(() {
-                                todos.remove(todo);
+                                _listData.remove(todo);
                                 _searches.remove(todo);
+                                _prefs.addBills(_listData);
                               });
                             }
                           },
@@ -228,7 +252,8 @@ class _HomePageCustomState extends State<HomePageCustom> {
                     TodoModel todo = TodoModel()
                       ..id = id
                       ..text = text;
-                    todos.add(todo);
+                    _listData.add(todo);
+                    _prefs.addBills(_listData);
                     _addController.clear();
                     _searchController.clear();
                     _searchTodos('');
