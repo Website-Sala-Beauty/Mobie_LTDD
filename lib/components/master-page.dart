@@ -18,11 +18,11 @@ class _MasterPageState extends State<MasterPage> {
       style: optionStyle,
     ),
     Text(
-      'Index 1: Business',
+      'Index 1: Finish',
       style: optionStyle,
     ),
     Text(
-      'Index 2: School',
+      'Index 2: Delete',
       style: optionStyle,
     ),
   ];
@@ -47,12 +47,12 @@ class _MasterPageState extends State<MasterPage> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
+            icon: Icon(Icons.done),
+            label: 'Finish',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
+            icon: Icon(Icons.delete),
+            label: 'Delete',
           ),
         ],
         currentIndex: _selectedIndex,
