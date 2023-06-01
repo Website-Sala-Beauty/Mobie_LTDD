@@ -15,7 +15,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration:const BoxDecoration(
           image: DecorationImage(
               image: AssetImage('assets/images/get_started.png'),
               fit: BoxFit.cover),

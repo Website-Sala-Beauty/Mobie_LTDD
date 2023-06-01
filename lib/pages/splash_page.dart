@@ -31,10 +31,7 @@ class _SplashPageState extends State<SplashPage> {
   void checkLogin() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     if (prefs.containsKey('user')) {
-      // final jsonString = prefs.getString('user');
-      // final map = jsonDecode(jsonString);
-      // User user = User.fromJson(map);
-      // Đăng nhập tự động thành công, chuyển hướng đến màn hình chính
+
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (_) => const HomePage()),
       );

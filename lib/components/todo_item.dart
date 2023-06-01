@@ -11,6 +11,8 @@ class TodoItem extends StatelessWidget {
     required this.text,
     required this.isDone,
     this.isDoneFunction,
+    this.status,
+    this.restore,
   });
 
   final VoidCallback? onTap;
@@ -18,6 +20,8 @@ class TodoItem extends StatelessWidget {
   final String text;
   final VoidCallback? isDoneFunction;
   final bool isDone;
+  final int? status;
+  final VoidCallback? restore;
 
   @override
   Widget build(BuildContext context) {
@@ -77,6 +81,23 @@ class TodoItem extends StatelessWidget {
                   backgroundColor: AppColor.orange,
                   radius: 12.0,
                   child: Icon(Icons.delete, size: 14.0, color: AppColor.white),
+                ),
+              ),
+            ),
+            Visibility(
+              visible: status == 3,
+              child: InkWell(
+                onTap: restore,
+                highlightColor: Colors.transparent,
+                splashColor: Colors.transparent,
+                child: const Padding(
+                  padding: EdgeInsets.all(6.0),
+                  child: CircleAvatar(
+                    backgroundColor: AppColor.orange,
+                    radius: 12.0,
+                    child:
+                        Icon(Icons.restore, size: 14.0, color: AppColor.white),
+                  ),
                 ),
               ),
             ),

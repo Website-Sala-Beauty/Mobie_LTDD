@@ -11,7 +11,7 @@ class SharePrefs {
     if (data == null) return null;
 
     List<Map<String, dynamic>> maps = jsonDecode(data)
-        .cast<Map<String, dynamic>>() as List<Map<String, dynamic>>;
+        .cast<Map<String, dynamic>>() as List<Map<String, dynamic>>; // cast để chuyển đổi kiểu dữ liệu
     List<TodoModel> bills = maps.map((e) => TodoModel.fromJson(e)).toList();
     return bills;
   }

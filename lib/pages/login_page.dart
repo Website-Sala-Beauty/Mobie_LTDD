@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todoaap_cuoiki/components/custom_button.dart';
 import 'package:todoaap_cuoiki/components/custom_text_field.dart';
+import 'package:todoaap_cuoiki/components/master-page.dart';
 import 'package:todoaap_cuoiki/models/User.dart';
 import 'package:todoaap_cuoiki/pages/home-page.dart';
 import 'package:todoaap_cuoiki/pages/log_and_reg.dart';
@@ -104,7 +105,7 @@ class _LoginPageState extends State<LoginPage> {
                             style: ElevatedButton.styleFrom(
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 25, vertical: 13),
-                              primary: Color(0xFF00ADEF),
+                              primary: const Color(0xFF00ADEF),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30),
                               ),
@@ -142,7 +143,8 @@ class _LoginPageState extends State<LoginPage> {
                           const SizedBox(height: 10),
                           CustomTextField(
                             controller: userController,
-                            hintText: 'Your Email',
+                            keyboardType: TextInputType.phone,
+                            hintText: 'Phone Number',
                             obscureText: false,
                           ),
                           const SizedBox(height: 10),
@@ -175,18 +177,19 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     const SizedBox(height: 10),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        ElevatedButton(
+                        TextButton(
                           onPressed: () {},
-                          style: ElevatedButton.styleFrom(
+                          style: TextButton.styleFrom(
                             elevation: 0,
-                            backgroundColor: Colors.transparent,
+                            //backgroundColor: Colors.transparent,
                             padding: const EdgeInsets.only(
                                 top: 0, left: 5, right: 5, bottom: 0),
                           ),
                           child: const Text(
                             'Forgot your password',
+                            //textAlign: TextAlign.center,
                             style: TextStyle(color: Colors.grey),
                           ),
                         ),
@@ -199,61 +202,48 @@ class _LoginPageState extends State<LoginPage> {
                           String passInput = passController.text.trim();
                           SharedPreferences prefs =
                               await SharedPreferences.getInstance();
-                          Map<String, dynamic> userJson =
-                              jsonDecode(prefs.getString('user')!);
-                          User user = User.fromJson(userJson);
-                          if (userInput == user.phone &&
-                              passInput == user.password) {
-                            Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const HomePage()),
-                                (route) => false);
+                          if (userInput.isEmpty || passInput.isEmpty) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
-                                duration: Duration(seconds: 2),
-                                content: Text('Logged in successfully'),
+                                content: Text("Field can't be empty"),
                               ),
                             );
                           } else {
-                            setState(() {
-                              userCheck = userInput.isEmpty;
-                              passCheck = passInput.isEmpty;
-                            });
-                            if (userCheck != true && passCheck != true) {
+                            if (prefs.containsKey('user')) {
+                              Map<String, dynamic> userJson =
+                                  jsonDecode(prefs.getString('user')!);
+
+                              User user = User.fromJson(userJson);
+
+                              if (userInput == user.phone &&
+                                  passInput == user.password) {
+                                Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const MasterPage()),
+                                    (route) => false);
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    duration: Duration(seconds: 2),
+                                    content: Text('Logged in successfully'),
+                                  ),
+                                );
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text('Wrong password or phone'),
+                                  ),
+                                );
+                              }
+                            } else {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
-                                  content: Text("Invalid login or password"),
+                                  content: Text('No user found'),
                                 ),
                               );
                             }
                           }
-
-                          // if (userInput == 'quoctoan' && passInput == '12345') {
-                          //   ScaffoldMessenger.of(context).showSnackBar(
-                          //     const SnackBar(
-                          //       content: Text('Logged in successfully'),
-                          //     ),
-                          //   );
-                          //   Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //       builder: (context) => SplashPage(),
-                          //     ),
-                          //   );
-                          // } else {
-                          //   setState(() {
-                          //     userCheck = userInput.isEmpty;
-                          //     passCheck = passInput.isEmpty;
-                          //   });
-                          //   if (userCheck != true && passCheck != true) {
-                          //     ScaffoldMessenger.of(context).showSnackBar(
-                          //       const SnackBar(
-                          //         content: Text("Invalid login or password"),
-                          //       ),
-                          //     );
-                          //   }
-                          // }
                         },
                         text: 'Log in'),
                     // const SizedBox(height: 120),

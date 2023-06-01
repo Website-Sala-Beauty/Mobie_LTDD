@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:todoaap_cuoiki/services/local/shared_perferences.dart';
 
 import '../components/app_color.dart';
@@ -41,7 +42,7 @@ class _HomePageState extends State<HomePage> {
         .toList();
   }
 
-  _getToDo() async {
+  _getToDo() {
     _prefs.getTodo().then((value) {
       setState(() {
         // chỉ cần gán _listData = value với nhứn todo isDone = true
@@ -95,48 +96,19 @@ class _HomePageState extends State<HomePage> {
                             });
                           },
                           onDeleted: () async {
-                            bool? status = await showDialog<bool>(
-                              context: context,
-                              builder: (BuildContext context) => AlertDialog(
-                                title: const Text('😍'),
-                                content: Row(
-                                  children: const [
-                                    Expanded(
-                                      child: Text(
-                                        'Do you want to remove the todo?',
-                                        style: TextStyle(fontSize: 22.0),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(context, false),
-                                    child: const Text('Cancel'),
-                                  ),
-                                  TextButton(
-                                    onPressed: () =>
-                                        Navigator.pop(context, true),
-                                    child: const Text('OK'),
-                                  ),
-                                ],
-                              ),
-                            );
-                            if (status ?? false) {
-                              setState(() {
-                                //_listData.remove(todo);
-                                todo.status = 3;
-                                _searches.remove(todo);
-                                _prefs.addBills(_listData);
-                                // cập nhật lại dữ liệu shared preferences sau khi thay đổi để dữ liệu được cập nhật ở cả 2 màn hình
-                                // sau 5s thì gọi lại hàm getToDo để cập nhật lại dữ liệu
-                                Future.delayed(const Duration(seconds: 1), () {
-                                  _getToDo();
-                                });
+                           
+                            setState(() {
+                              //_listData.remove(todo);
+                              todo.status = 3;
+                              _searches.remove(todo);
+                              _prefs.addBills(_listData);
+                              // cập nhật lại dữ liệu shared preferences sau khi thay đổi để dữ liệu được cập nhật ở cả 2 màn hình
+                              // sau 5s thì gọi lại hàm getToDo để cập nhật lại dữ liệu
+                              Future.delayed(const Duration(seconds: 1), () {
+                                _getToDo();
                               });
-                            }
+                            });
+                            
                           },
                           text: todo.text ?? '-:-',
                           isDone: todo.isDone ?? false,
@@ -223,7 +195,7 @@ class _HomePageState extends State<HomePage> {
                   child: Container(
                     padding: const EdgeInsets.all(14.6),
                     decoration: BoxDecoration(
-                      color: AppColor.blue,
+                      color: Colors.amber[800],
                       borderRadius: BorderRadius.circular(10.0),
                       boxShadow: const [
                         BoxShadow(
