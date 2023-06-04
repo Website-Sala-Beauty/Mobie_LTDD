@@ -4,6 +4,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:todoaap_cuoiki/components/master-page.dart';
 import 'package:todoaap_cuoiki/pages/home-page.dart';
 import 'package:todoaap_cuoiki/pages/login_page.dart';
 
@@ -33,7 +34,7 @@ class _SplashPageState extends State<SplashPage> {
     if (prefs.containsKey('user')) {
 
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => const HomePage()),
+        MaterialPageRoute(builder: (_) => const MasterPage()),
       );
     } else {
       // Không có thông tin đăng nhập, chuyển hướng đến màn hình đăng nhập
