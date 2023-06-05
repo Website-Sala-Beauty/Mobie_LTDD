@@ -10,6 +10,7 @@ import 'package:todoaap_cuoiki/components/master-page.dart';
 import 'package:todoaap_cuoiki/models/User.dart';
 import 'package:todoaap_cuoiki/pages/home-page.dart';
 import 'package:todoaap_cuoiki/pages/log_and_reg.dart';
+import 'package:todoaap_cuoiki/pages/reset_password.dart';
 import 'package:todoaap_cuoiki/pages/sign_up.dart';
 import 'package:todoaap_cuoiki/pages/splash_page.dart';
 // import 'package:roome_app/components/custom_button.dart';
@@ -180,19 +181,25 @@ class _LoginPageState extends State<LoginPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         TextButton(
-                          onPressed: () {},
-                          style: TextButton.styleFrom(
-                            elevation: 0,
-                            //backgroundColor: Colors.transparent,
-                            padding: const EdgeInsets.only(
-                                top: 0, left: 5, right: 5, bottom: 0),
-                          ),
-                          child: const Text(
-                            'Forgot your password',
-                            //textAlign: TextAlign.center,
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                        ),
+                            onPressed: () {},
+                            style: TextButton.styleFrom(
+                              elevation: 0,
+                              //backgroundColor: Colors.transparent,
+                              padding: const EdgeInsets.only(
+                                  top: 0, left: 5, right: 5, bottom: 0),
+                            ),
+                            child: TextButton(
+                                onPressed: () {Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ResetPassword(),
+                    ),
+                  );},
+                                child: Text(
+                                  'Forgot your password',
+                                  //textAlign: TextAlign.center,
+                                  style: TextStyle(color: Colors.grey),
+                                ))),
                       ],
                     ),
                     const SizedBox(height: 10),
@@ -221,7 +228,7 @@ class _LoginPageState extends State<LoginPage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            const MasterPage()),
+                                            const SplashPage()),
                                     (route) => false);
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
