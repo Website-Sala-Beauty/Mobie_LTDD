@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
       });
     });
   }
-
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,42 +81,56 @@ class _HomePageState extends State<HomePage> {
                       itemCount: _searches.length,
                       itemBuilder: (context, index) {
                         TodoModel todo = _searches.reversed.toList()[index];
-                        return TodoItem(
-                          onTap: () {
-                            setState(() {
-                              todo.isDone = true;
-                              todo.status = 2;
-                              _prefs.addBills(_listData);
-                              // cập nhật lại dữ liệu shared preferences sau khi thay đổi để dữ liệu được cập nhật ở cả 2 màn hình
-                              // sau 5s thì gọi lại hàm getToDo để cập nhật lại dữ liệu
-                              Future.delayed(const Duration(seconds: 1), () {
-                                _getToDo();
+                        return Visibility(
+                          visible: _listData
+                              .where((element) => element.status == 1)
+                              .toList()
+                              .isNotEmpty,
+                          child: TodoItem(
+                            onTap: () {
+                              setState(() {
+                                todo.isDone = true;
+                                todo.status = 2;
+                                _prefs.addBills(_listData);
+                                // cập nhật lại dữ liệu shared preferences sau khi thay đổi để dữ liệu được cập nhật ở cả 2 màn hình
+                                // sau 5s thì gọi lại hàm getToDo để cập nhật lại dữ liệu
+                                Future.delayed(const Duration(seconds: 1), () {
+                                  _getToDo();
+                                });
+                                //_getToDo();
                               });
-                              //_getToDo();
-                            });
-                          },
-                          onDeleted: () async {
+                            },
+                            onDeleted: () async {
+                              setState(() {
+                                
+                                //_listData.remove(todo);
+                                todo.status = 3;
+                                _searches.remove(todo);
+                                _prefs.addBills(_listData);
+                                // cập nhật lại dữ liệu shared preferences sau khi thay đổi để dữ liệu được cập nhật ở cả 2 màn hình
+                                // sau 5s thì gọi lại hàm getToDo để cập nhật lại dữ liệu
+                                Future.delayed(const Duration(seconds: 1), () {
+                                  _getToDo();
+                                });
+                              });
+                            },
+                            text: todo.text ?? '-:-',
+                            isDone: todo.isDone ?? false,
+                            //chỉ sét màu cho icon khi  nhấn vào nó
+
                            
-                            setState(() {
-                              //_listData.remove(todo);
-                              todo.status = 3;
-                              _searches.remove(todo);
-                              _prefs.addBills(_listData);
-                              // cập nhật lại dữ liệu shared preferences sau khi thay đổi để dữ liệu được cập nhật ở cả 2 màn hình
-                              // sau 5s thì gọi lại hàm getToDo để cập nhật lại dữ liệu
-                              Future.delayed(const Duration(seconds: 1), () {
-                                _getToDo();
-                              });
-                            });
-                            
-                          },
-                          text: todo.text ?? '-:-',
-                          isDone: todo.isDone ?? false,
+                          ),
                         );
                       },
                       separatorBuilder: (context, index) =>
                           const SizedBox(height: 16.8),
-                    )
+                    ),
+                    Visibility(
+                        visible: _listData
+                            .where((element) => element.status == 1)
+                            .toList()
+                            .isEmpty,
+                        child: const Text('No data'))
                   ],
                 ),
               ),

@@ -219,6 +219,9 @@ class _SignUpPageState extends State<SignUpPage> {
                                   name: firstNameController.text,
                                 );
                                 prefs.setString('user', use.toJson());
+                                // Lấy name từ user đã đăng ký
+                                //String name = prefs.getString('user')!; 
+
                                 SnackBar snackBar = const SnackBar(
                                     duration: Duration(seconds: 2),
                                     content: Text(

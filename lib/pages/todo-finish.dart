@@ -81,71 +81,83 @@ class _ToDoFinshPageState extends State<ToDoFinshPage> {
                       itemCount: _searches.length,
                       itemBuilder: (context, index) {
                         TodoModel todo = _searches.reversed.toList()[index];
-                        return TodoItem(
-                          onTap: () {
-                            setState(() {
-                              todo.isDone = false;
-                              todo.status = 1;
-                              _prefs.addBills(_listData);
-                              // cập nhật lại dữ liệu shared preferences sau khi thay đổi để dữ liệu được cập nhật ở cả 2 màn hình
-                              // sau 5s thì gọi lại hàm getToDo để cập nhật lại dữ liệu
-                              Future.delayed(const Duration(seconds: 1), () {
-                                _getToDo();
+                        return Visibility(
+                          visible: _listData
+                              .where((element) => element.status == 2)
+                              .toList()
+                              .isNotEmpty,
+                          child: TodoItem(
+                            onTap: () {
+                              setState(() {
+                                todo.isDone = false;
+                                todo.status = 1;
+                                _prefs.addBills(_listData);
+                                // cập nhật lại dữ liệu shared preferences sau khi thay đổi để dữ liệu được cập nhật ở cả 2 màn hình
+                                // sau 5s thì gọi lại hàm getToDo để cập nhật lại dữ liệu
+                                Future.delayed(const Duration(seconds: 1), () {
+                                  _getToDo();
+                                });
+                                //_getToDo();
                               });
-                              //_getToDo();
-                            });
-                          },
-                          onDeleted: () async {
-                            // bool? status = await showDialog<bool>(
-                            //   context: context,
-                            //   builder: (BuildContext context) => AlertDialog(
-                            //     title: const Text('😍'),
-                            //     content: Row(
-                            //       children: const [
-                            //         Expanded(
-                            //           child: Text(
-                            //             'Do you want to remove the todo?',
-                            //             style: TextStyle(fontSize: 22.0),
-                            //             textAlign: TextAlign.center,
-                            //           ),
-                            //         ),
-                            //       ],
-                            //     ),
-                            //     actions: [
-                            //       TextButton(
-                            //         onPressed: () =>
-                            //             Navigator.pop(context, false),
-                            //         child: const Text('Cancel'),
-                            //       ),
-                            //       TextButton(
-                            //         onPressed: () =>
-                            //             Navigator.pop(context, true),
-                            //         child: const Text('OK'),
-                            //       ),
-                            //     ],
-                            //   ),
-                            // );
-                            // if (status ?? false) {
-                            setState(() {
-                              //_listData.remove(todo);
-                              todo.status = 3;
-                              _searches.remove(todo);
-                              _prefs.addBills(_listData);
-                              // cập nhật lại dữ liệu shared preferences sau khi thay đổi để dữ liệu được cập nhật ở cả 2 màn hình
-                              // sau 5s thì gọi lại hàm getToDo để cập nhật lại dữ liệu
-                              Future.delayed(const Duration(seconds: 1), () {
-                                _getToDo();
+                            },
+                            onDeleted: () async {
+                              // bool? status = await showDialog<bool>(
+                              //   context: context,
+                              //   builder: (BuildContext context) => AlertDialog(
+                              //     title: const Text('😍'),
+                              //     content: Row(
+                              //       children: const [
+                              //         Expanded(
+                              //           child: Text(
+                              //             'Do you want to remove the todo?',
+                              //             style: TextStyle(fontSize: 22.0),
+                              //             textAlign: TextAlign.center,
+                              //           ),
+                              //         ),
+                              //       ],
+                              //     ),
+                              //     actions: [
+                              //       TextButton(
+                              //         onPressed: () =>
+                              //             Navigator.pop(context, false),
+                              //         child: const Text('Cancel'),
+                              //       ),
+                              //       TextButton(
+                              //         onPressed: () =>
+                              //             Navigator.pop(context, true),
+                              //         child: const Text('OK'),
+                              //       ),
+                              //     ],
+                              //   ),
+                              // );
+                              // if (status ?? false) {
+                              setState(() {
+                                //_listData.remove(todo);
+                                todo.status = 3;
+                                _searches.remove(todo);
+                                _prefs.addBills(_listData);
+                                // cập nhật lại dữ liệu shared preferences sau khi thay đổi để dữ liệu được cập nhật ở cả 2 màn hình
+                                // sau 5s thì gọi lại hàm getToDo để cập nhật lại dữ liệu
+                                Future.delayed(const Duration(seconds: 1), () {
+                                  _getToDo();
+                                });
                               });
-                            });
-                            //  }
-                          },
-                          text: todo.text ?? '-:-',
-                          isDone: todo.isDone ?? false,
+                              //  }
+                            },
+                            text: todo.text ?? '-:-',
+                            isDone: todo.isDone ?? false,
+                          ),
                         );
                       },
                       separatorBuilder: (context, index) =>
                           const SizedBox(height: 16.8),
-                    )
+                    ),
+                    Visibility(
+                        visible: _listData
+                            .where((element) => element.status == 2)
+                            .toList()
+                            .isEmpty,
+                        child: const Text('No data'))
                   ],
                 ),
               ),
